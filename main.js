@@ -58,7 +58,7 @@ app.on("window-all-closed", () => {
 autoUpdater.setFeedURL({
   provider: "github",
   repo: "electron-demo",
-  owner: "myadmin",
+  owner: "renqian805",
   private: true,
   token: "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",
 });

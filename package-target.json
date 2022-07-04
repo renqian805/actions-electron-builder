@@ -35,10 +35,7 @@
     "mac": {
       "category": "public.app-category.productivity",
       "artifactName": "${productName}-${version}-${arch}.${ext}",
-      "target": [
-        "dmg",
-        "zip"
-      ]
+      "target": ["dmg", "zip"]
     },
     "dmg": {
       "background": "assets/appdmg.png",
@@ -63,11 +60,7 @@
       }
     },
     "win": {
-      "target": [
-        "msi",
-        "nsis",
-        "zip"
-      ],
+      "target": ["msi", "nsis", "zip"],
       "icon": "assest/icon.ico",
       "artifactName": "${productName}-Web-Setup-${version}.${ext}",
       "publisherName": "Electron Demo"
@@ -81,13 +74,13 @@
     "publish": [
       {
         "provider": "github",
-        "owner": "myadmin",
+        "owner": "renqian805",
         "repo": "electron-demo"
       }
     ]
   },
   "keywords": [],
-  "author": "myadmin",
+  "author": "renqian805",
   "license": "ISC",
   "dependencies": {
     "electron-is-dev": "^2.0.0",
@@ -110,11 +103,7 @@
     "web-vitals": "^2.1.4"
   },
   "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
+    "production": [">0.2%", "not dead", "not op_mini all"],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
