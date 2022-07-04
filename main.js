@@ -60,7 +60,7 @@ autoUpdater.setFeedURL({
   repo: "electron-demo",
   owner: "renqian805",
   private: true,
-  token: "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",
+  token: "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",
 });
 
 const message = {
