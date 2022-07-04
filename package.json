@@ -1,0 +1,137 @@
+{
+  "name": "electron-demo",
+  "version": "1.0.12",
+  "description": "",
+  "main": "main.js",
+  "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "dev": "concurrently \"wait-on http://localhost:3000 && electron .\" \"cross-env BROWSER=none npm start\"",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder -p always",
+    "release": "cross-env GH_TOKEN= electron-builder -p always",
+    "prerelease": "npm run build",
+    "prepack": "npm run build",
+    "predist": "npm run build",
+    "server": "node server.js"
+  },
+  "homepage": "./",
+  "build": {
+    "appId": "electronDemo",
+    "productName": "electron-demo",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*",
+      "package.json",
+      "main.js",
+      "preload.js"
+    ],
+    "directories": {
+      "output": "dist",
+      "buildResources": "assets"
+    },
+    "extends": null,
+    "mac": {
+      "category": "public.app-category.productivity",
+      "artifactName": "${productName}-${version}-${arch}.${ext}",
+      "target": [
+        "dmg",
+        "zip"
+      ]
+    },
+    "dmg": {
+      "background": "assets/appdmg.png",
+      "icon": "assets/icon.icns",
+      "iconSize": 100,
+      "contents": [
+        {
+          "x": 380,
+          "y": 280,
+          "type": "link",
+          "path": "/Applications"
+        },
+        {
+          "x": 110,
+          "y": 280,
+          "type": "file"
+        }
+      ],
+      "window": {
+        "width": 500,
+        "height": 500
+      }
+    },
+    "win": {
+      "target": [
+        "msi",
+        "nsis",
+        "zip"
+      ],
+      "verifyUpdateCodeSignature": false,
+      "icon": "assest/icon.ico",
+      "artifactName": "${productName}-Web-Setup-${version}.${ext}"
+    },
+    "nsis": {
+      "allowToChangeInstallationDirectory": true,
+      "oneClick": false,
+      "perMachine": false
+    },
+    "asar": false,
+    "linux": {
+      "target": [
+        "deb",
+        "AppImage"
+      ],
+      "icon": "assest/icon.ico"
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "myadmin",
+        "repo": "electron-demo"
+      }
+    ]
+  },
+  "keywords": [],
+  "author": {
+    "name": "myadmin",
+    "email": "yang16829@163.com"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "electron-is-dev": "^2.0.0",
+    "electron-log": "^4.4.1",
+    "electron-updater": "^4.3.9"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
+    "concurrently": "^7.1.0",
+    "cross-env": "^7.0.3",
+    "electron": "^14.2.9",
+    "electron-builder": "^23.0.3",
+    "electron-notarize": "^1.2.1",
+    "express": "^4.18.0",
+    "is-electron": "^2.2.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^6.2.1",
+    "react-scripts": "5.0.0",
+    "wait-on": "^6.0.1",
+    "web-vitals": "^2.1.4"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
